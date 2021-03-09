@@ -1,6 +1,8 @@
 package it.polito.tdp.parole;
 
 import it.polito.tdp.parole.model.Parole;
+import it.polito.tdp.parole.model.ParoleArrayList;
+import it.polito.tdp.parole.model.ParoleLinkedList;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +15,8 @@ import javafx.scene.control.TextField;
 public class FXMLController {
 	
 	Parole elenco ;
+	//ParoleLinkedList elenco;
+	//ParoleArrayList elenco;
 
     @FXML
     private ResourceBundle resources;
@@ -87,5 +91,7 @@ public class FXMLController {
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
 
         elenco = new Parole() ;
+        //elenco = new ParoleLinkedList() ;
+        //elenco = new ParoleArrayList();
     }
 }
