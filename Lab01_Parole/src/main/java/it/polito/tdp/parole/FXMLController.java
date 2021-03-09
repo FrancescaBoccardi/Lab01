@@ -31,9 +31,17 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
-
+    
+    @FXML
+    private Button btnCancella;
+    
+    @FXML
+    private TextArea txtTime;
+    
+    
     @FXML
     void doInsert(ActionEvent event) {
+    	long startTime = System.nanoTime();
     	String risultato = "";
     	elenco.addParola(txtParola.getText());
     	txtParola.setText("");
@@ -42,13 +50,33 @@ public class FXMLController {
     		risultato += s+"\n";
     	}
     	txtResult.setText(risultato);
+    	long endTime = System.nanoTime() - startTime;
+    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	long startTime = System.nanoTime();
     	elenco.reset();
     	txtResult.setText("");
     	txtParola.setText("");
+    	txtTime.setText("");
+    	long endTime = System.nanoTime() - startTime;
+    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
+    }
+    
+    @FXML
+    void doCancella(ActionEvent event) {
+    	long startTime = System.nanoTime();
+    	elenco.removeParola(txtResult.getSelectedText());
+    	
+    	String risultato = "";
+    	for(String s : elenco.getElenco()) {
+    		risultato += s+"\n";
+    	}
+    	txtResult.setText(risultato);
+    	long endTime = System.nanoTime() - startTime;
+    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
     }
 
     @FXML
