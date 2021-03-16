@@ -17,6 +17,7 @@ public class FXMLController {
 	Parole elenco ;
 	//ParoleLinkedList elenco;
 	//ParoleArrayList elenco;
+	
 
     @FXML
     private ResourceBundle resources;
