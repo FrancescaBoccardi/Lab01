@@ -49,39 +49,43 @@ public class FXMLController {
     	long startTime = System.nanoTime();
     	String risultato = "";
     	elenco.addParola(txtParola.getText());
+    	long endTime = System.nanoTime() - startTime;
     	txtParola.setText("");
     	
     	for(String s : elenco.getElenco()) {
     		risultato += s+"\n";
     	}
     	txtResult.setText(risultato);
-    	long endTime = System.nanoTime() - startTime;
-    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
+    	
+    	txtTime.setText("Tempo di esecuzione: "+endTime/1e9+" secondi");
     }
 
     @FXML
     void doReset(ActionEvent event) {
     	long startTime = System.nanoTime();
     	elenco.reset();
+    	long endTime = System.nanoTime() - startTime;
+    	
     	txtResult.setText("");
     	txtParola.setText("");
     	txtTime.setText("");
-    	long endTime = System.nanoTime() - startTime;
-    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
+    	
+    	txtTime.setText("Tempo di esecuzione: "+endTime/1e9+" secondi");
     }
     
     @FXML
     void doCancella(ActionEvent event) {
     	long startTime = System.nanoTime();
     	elenco.removeParola(txtResult.getSelectedText());
+    	long endTime = System.nanoTime() - startTime;
     	
     	String risultato = "";
     	for(String s : elenco.getElenco()) {
     		risultato += s+"\n";
     	}
     	txtResult.setText(risultato);
-    	long endTime = System.nanoTime() - startTime;
-    	txtTime.setText("Tempo di esecuzione: "+endTime+" ns");
+    	
+    	txtTime.setText("Tempo di esecuzione: "+endTime/1e9+" secondi");
     }
 
     @FXML
